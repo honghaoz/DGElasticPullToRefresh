@@ -48,7 +48,11 @@ public class DGElasticPullToRefreshLoadingViewCircle: DGElasticPullToRefreshLoad
     
     // MARK: -
     // MARK: Vars
-    
+	
+	public var circleLineWidth: CGFloat = 1.0 {
+		didSet { shapeLayer.lineWidth = circleLineWidth }
+	}
+	
     private let kRotationAnimation = "kRotationAnimation"
     
     private let shapeLayer = CAShapeLayer()
@@ -65,7 +69,7 @@ public class DGElasticPullToRefreshLoadingViewCircle: DGElasticPullToRefreshLoad
     public override init() {
         super.init(frame: .zero)
         
-        shapeLayer.lineWidth = 1.0
+        shapeLayer.lineWidth = circleLineWidth
         shapeLayer.fillColor = UIColor.clearColor().CGColor
         shapeLayer.strokeColor = tintColor.CGColor
         shapeLayer.actions = ["strokeEnd" : NSNull(), "transform" : NSNull()]
